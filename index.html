@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="劉奇 Archie Liu — 資深 Java 後端工程師。5 年 Spring Boot 開發經驗,專長 FinTech、IoT 與 LLM 工程化,具備 production 金流系統維運視野。">
+<meta property="og:title" content="劉奇 Archie｜資深後端工程師">
+<meta property="og:description" content="Java / Spring Boot・FinTech × IoT × LLM 工程化">
+<meta property="og:type" content="website">
+<title>劉奇 Archie｜資深後端工程師</title>
+</head>
+<body>
+<style>
+  :root {
+    --paper: #FAF8F5;
+    --surface: #FFFFFF;
+    --ink: #23282E;
+    --muted: #5C6670;
+    --copper: #A8541F;
+    --copper-soft: #C4763F;
+    --line: #E6E0D7;
+    --tag-bg: #F1ECE4;
+    --code-bg: #F4F0EA;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #15181C;
+      --surface: #1D2127;
+      --ink: #E9E5DF;
+      --muted: #9AA3AC;
+      --copper: #D98E55;
+      --copper-soft: #B96F3C;
+      --line: #2C323A;
+      --tag-bg: #262C34;
+      --code-bg: #21262D;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #15181C;
+    --surface: #1D2127;
+    --ink: #E9E5DF;
+    --muted: #9AA3AC;
+    --copper: #D98E55;
+    --copper-soft: #B96F3C;
+    --line: #2C323A;
+    --tag-bg: #262C34;
+    --code-bg: #21262D;
+  }
+  :root[data-theme="light"] {
+    --paper: #FAF8F5;
+    --surface: #FFFFFF;
+    --ink: #23282E;
+    --muted: #5C6670;
+    --copper: #A8541F;
+    --copper-soft: #C4763F;
+    --line: #E6E0D7;
+    --tag-bg: #F1ECE4;
+    --code-bg: #F4F0EA;
+  }
+
+  * { box-sizing: border-box; }
+  html { background: var(--paper); }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", -apple-system, sans-serif;
+    line-height: 1.75;
+    font-size: 16px;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px 80px; }
+
+  .serif { font-family: "Noto Serif TC", "Songti TC", "PMingLiU", Georgia, serif; }
+  .mono {
+    font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  a { color: var(--copper); text-decoration: none; border-bottom: 1px solid transparent; }
+  a:hover, a:focus-visible { border-bottom-color: var(--copper); }
+  a:focus-visible { outline: 2px solid var(--copper); outline-offset: 3px; border-radius: 2px; }
+
+  /* ---- hero ---- */
+  header { padding: 72px 0 48px; border-bottom: 1px solid var(--line); }
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--copper); margin: 0 0 18px;
+  }
+  h1 {
+    font-size: clamp(38px, 7vw, 56px); line-height: 1.15; margin: 0 0 6px;
+    font-weight: 700; text-wrap: balance;
+  }
+  h1 .latin { color: var(--muted); font-weight: 400; font-size: 0.55em; margin-left: 12px; }
+  .role { font-size: 19px; color: var(--ink); margin: 0 0 26px; font-weight: 500; }
+  .role em { color: var(--copper); font-style: normal; }
+  .motto {
+    font-size: 17px; color: var(--muted); margin: 0 0 26px;
+    padding-left: 16px; border-left: 3px solid var(--copper);
+    max-width: 34em; text-wrap: balance;
+  }
+  .intro { max-width: 40em; margin: 0 0 30px; color: var(--ink); }
+  .contact { display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 14px; }
+  .contact span { color: var(--muted); }
+
+  /* ---- sections ---- */
+  section { padding: 52px 0 8px; }
+  h2 {
+    font-size: 24px; margin: 0 0 8px; font-weight: 700;
+    display: flex; align-items: baseline; gap: 14px;
+  }
+  h2 .num { font-size: 13px; color: var(--copper); letter-spacing: 0.08em; }
+  .section-lede { color: var(--muted); font-size: 15px; margin: 0 0 32px; max-width: 42em; }
+
+  /* skills */
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+  .skill-group {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 6px;
+    padding: 20px 22px;
+  }
+  .skill-group h3 {
+    margin: 0 0 12px; font-size: 12px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--copper); font-weight: 600;
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    font-size: 13px; padding: 3px 10px; border-radius: 4px;
+    background: var(--tag-bg); color: var(--ink);
+  }
+
+  /* experience */
+  .job { display: grid; grid-template-columns: 150px 1fr; gap: 8px 32px; padding: 30px 0; border-bottom: 1px solid var(--line); }
+  .job:last-of-type { border-bottom: none; }
+  .job-when { font-size: 13px; color: var(--muted); padding-top: 5px; }
+  .job-when .dur { display: block; color: var(--copper); margin-top: 2px; }
+  .job h3 { margin: 0; font-size: 18px; font-weight: 700; }
+  .job .org { color: var(--muted); font-size: 14px; margin: 2px 0 12px; }
+  .job ul { margin: 0; padding-left: 20px; }
+  .job li { margin-bottom: 8px; }
+  .job li:last-child { margin-bottom: 0; }
+  .metric { color: var(--copper); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+  /* projects */
+  .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+  .project {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 6px;
+    padding: 24px; display: flex; flex-direction: column; gap: 10px;
+  }
+  .project h3 { margin: 0; font-size: 17px; font-weight: 700; }
+  .project .when { font-size: 12px; color: var(--muted); }
+  .project p { margin: 0; font-size: 15px; flex: 1; }
+  .project .tags { margin-top: 4px; }
+  .project .tag { font-size: 12px; }
+
+  /* education */
+  .edu-list { display: grid; gap: 14px; }
+  .edu-item { display: grid; grid-template-columns: 150px 1fr; gap: 4px 32px; }
+  .edu-item .k { font-size: 13px; color: var(--muted); padding-top: 3px; }
+  .edu-item .v strong { font-weight: 600; }
+  .edu-item .v span { color: var(--muted); font-size: 14px; }
+
+  footer {
+    margin-top: 64px; padding-top: 28px; border-top: 1px solid var(--line);
+    display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between;
+    font-size: 13px; color: var(--muted);
+  }
+
+  @media (max-width: 640px) {
+    header { padding-top: 52px; }
+    .job, .edu-item { grid-template-columns: 1fr; }
+    .job-when { padding-top: 0; }
+    .job-when .dur { display: inline; margin-left: 10px; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    header, section { animation: rise 0.5s ease both; }
+    section:nth-of-type(2) { animation-delay: 0.06s; }
+    section:nth-of-type(3) { animation-delay: 0.12s; }
+    @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow mono">Senior Backend Engineer · Java / Spring Boot</p>
+    <h1 class="serif">劉奇<span class="latin mono">Archie Liu</span></h1>
+    <p class="role">資深後端工程師｜<em>FinTech × IoT × LLM 工程化</em></p>
+    <p class="motto serif">「再複雜的問題，拆解後都能變簡單；只要方向對了，凡事皆有解。」</p>
+    <p class="intro">
+      5 年 Java 後端開發經驗，職涯起步於台灣美光的無塵室——在電鍍銅機台的第一線維運中學會系統性拆解問題，也因此走進軟體開發。
+      擅長微服務架構排錯與跨系統異常定位，交付過金融視訊核身、跨境支付維運、LLM 整合等核心系統；
+      相信好的架構來自誠實的取捨（trade-off），而不是堆疊技術。
+    </p>
+    <div class="contact mono">
+      <a href="mailto:chiliteng007@gmail.com">chiliteng007@gmail.com</a>
+      <span>台北市・新北市</span>
+      <span>後端工程師／全端工程師</span>
+    </div>
+  </header>
+
+  <section>
+    <h2 class="serif"><span class="num mono">01</span>核心技術</h2>
+    <p class="section-lede">以 Java 後端為主軸，帶著維運現場的可觀測性視野與 LLM 工程化的實作經驗。</p>
+    <div class="skills">
+      <div class="skill-group">
+        <h3>後端核心</h3>
+        <div class="tags">
+          <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Spring MVC</span>
+          <span class="tag">Hibernate / MyBatis</span><span class="tag">RESTful API</span><span class="tag">PostgreSQL</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>基礎設施與維運</h3>
+        <div class="tags">
+          <span class="tag">Docker</span><span class="tag">CI/CD（GitLab CI / Jenkins）</span><span class="tag">AWS</span>
+          <span class="tag">RedHat OCP</span><span class="tag">Linux</span><span class="tag">Kibana 日誌分析</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>AI 與 LLM 工程化</h3>
+        <div class="tags">
+          <span class="tag">LLM API 整合</span><span class="tag">OpenAI Whisper</span>
+          <span class="tag">Chatbot 開發</span><span class="tag">AI 協作開發流程</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>前端與測試</h3>
+        <div class="tags">
+          <span class="tag">Angular</span><span class="tag">JUnit 5</span><span class="tag">Selenium</span>
+          <span class="tag">JMeter 壓力測試</span><span class="tag">WebSocket / MQTT</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="serif"><span class="num mono">02</span>工作經歷</h2>
+    <p class="section-lede">總年資 9 年以上，其中軟體開發 5 年；每一段經歷都帶著上一段的視角。</p>
+
+    <div class="job">
+      <div class="job-when mono">2025/11 – 2026/05<span class="dur">7 個月</span></div>
+      <div>
+        <h3>系統工程師（運維）</h3>
+        <p class="org">恒達科有限公司・跨境電商支付平台</p>
+        <ul>
+          <li>負責高併發金流服務與 AWS 雲端基礎設施的日常穩定性運維，累積 <strong>production 金流系統的第一線維運視角</strong>。</li>
+          <li>擔任 B2B 技術支持，主導外部合作夥伴 API 串接指導與跨系統日誌排查；以 Kibana 進行異常定位，<span class="metric">大幅縮短 MTTR</span>。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-when mono">2022/10 – 2025/11<span class="dur">3 年 2 個月</span></div>
+      <div>
+        <h3>資深解決方案工程師</h3>
+        <p class="org">偉康科技股份有限公司（WebComm）</p>
+        <ul>
+          <li>負責超過 40% 的後端核心開發；與架構師協作調整分散式系統架構，<span class="metric">系統效能提升 25%</span>。</li>
+          <li>優化 CI/CD 流程，客戶端手動部署 <span class="metric">1 小時 → 10 分鐘</span>，後續維護時間<span class="metric">降低 60%</span>。</li>
+          <li>獨立完成全端任務：前端介面（Angular）、後端 API 與 <strong>LLM 技術整合實作</strong>。</li>
+          <li>接手高複雜度既有專案，<span class="metric">3 個月</span>內釐清並清償累積技術債，順利為 2 家金融機構完成客製化交付。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-when mono">2022/03 – 2022/10<span class="dur">8 個月</span></div>
+      <div>
+        <h3>Java 工程師</h3>
+        <p class="org">金波信息技術諮詢</p>
+        <ul>
+          <li>以 Spring Boot、Thymeleaf、MyBatis 獨立研發內部一站式營運平台。</li>
+          <li>實作資料加解密機制（資安合規）、動態統計圖表與自動化報表模組；深入 Linux 日誌完成生產環境故障排除。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-when mono">2020/07 – 2022/02<span class="dur">1 年 8 個月</span></div>
+      <div>
+        <h3>Java Backend Server 工程師</h3>
+        <p class="org">磐旭智能股份有限公司・IoT</p>
+        <ul>
+          <li>基於 Spring Boot 獨立開發後端核心 API，服務前端應用與物聯網設備，並優化系統吞吐量。</li>
+          <li>與韌體工程師協作 MQTT 協定實作與優化，降低訊息延遲；以 JMeter 建構高峰期壓力測試，協助定位系統瓶頸。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-when mono">2015/12 – 2020/02<span class="dur">4 年 3 個月</span></div>
+      <div>
+        <h3>生產設備工程師</h3>
+        <p class="org">台灣美光晶圓科技（Micron）</p>
+        <ul>
+          <li>主導電鍍銅核心設備的運維、異常排錯與製程改善；優化 PM 標準流程並建立故障排除 SOP，維持產線高稼動率。</li>
+          <li>透過系統性數據分析降低微粒子污染、解決電鍍不均與填充缺陷——<strong>在硬體現場養成的拆解方法，後來成為我做軟體的底層能力</strong>。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="serif"><span class="num mono">03</span>精選專案</h2>
+    <p class="section-lede">從金融視訊核身到語音知識助理——共同點是把新技術落地成穩定可交付的系統。</p>
+    <div class="projects">
+      <div class="project">
+        <h3>Nous AI 視訊會議平台</h3>
+        <p class="when mono">2022/11 – 2024/10</p>
+        <p>基於開源 Jitsi Meet 二次開發，打造金融領域的視訊核身解決方案，支援遠端開戶與線上簽約。針對多家客戶迥異的網路與設備環境完成部署調校，確保系統穩定與如期交付。</p>
+        <div class="tags"><span class="tag">Jitsi Meet</span><span class="tag">Java</span><span class="tag">金融核身</span></div>
+      </div>
+      <div class="project">
+        <h3>會員入口共用平台（技術顧問）</h3>
+        <p class="when mono">2023/10 – 2024/11</p>
+        <p>跨語言剖析 C#（.NET）平台的架構、設計模式與資安規範，在 Java（Spring Boot 3）生態系完成同等標準的樣板重構，為客戶 Java 團隊建立標準化串接框架，並提供測試範例與教育訓練。</p>
+        <div class="tags"><span class="tag">Spring Boot 3</span><span class="tag">C# → Java</span><span class="tag">JUnit 5</span><span class="tag">GitLab CI</span></div>
+      </div>
+      <div class="project">
+        <h3>SVRA 智慧語音知識助理</h3>
+        <p class="when mono">2024/05 迄今・持續演進</p>
+        <p>整合 LINE Messaging API、OpenAI Whisper 與線上備忘錄：對 LINE 說一句話，語音即轉為結構化筆記。目前正以事件驅動架構重構——Java 編排、Python ML worker、佇列解耦、pgvector RAG 檢索。</p>
+        <div class="tags"><span class="tag">LINE API</span><span class="tag">Whisper</span><span class="tag">RabbitMQ</span><span class="tag">pgvector</span></div>
+      </div>
+      <div class="project">
+        <h3>Nous 數據平台系列（CDP / DGS / AI 營運助理）</h3>
+        <p class="when mono">2024/12 – 2025/11</p>
+        <p>顧客數據平台的訊息發送（SMS/SMTP/LINE）與顧客旅程功能開發；數據治理平台的前端（Angular）與 OCP 雲端部署；Denodo SDK 與多家 LLM 的整合測試。並與架構師優化公司 CI/CD，<span class="metric">地端部署時間縮減 50%</span>。</p>
+        <div class="tags"><span class="tag">Angular</span><span class="tag">RedHat OCP</span><span class="tag">Jenkins</span><span class="tag">LLM 整合</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="serif"><span class="num mono">04</span>學歷與進修</h2>
+    <div class="edu-list">
+      <div class="edu-item">
+        <div class="k mono">2010 – 2014</div>
+        <div class="v"><strong>國立聯合大學・電子工程學系</strong> <span>學士</span></div>
+      </div>
+      <div class="edu-item">
+        <div class="k mono">2020</div>
+        <div class="v"><strong>資策會「跨域 Java 軟體工程師就業養成班」</strong> <span>SkillExchange 技能交換平台・WebSocket 即時通訊</span></div>
+      </div>
+      <div class="edu-item">
+        <div class="k mono">進行中</div>
+        <div class="v"><strong>《現代系統設計實戰營》</strong> <span>微服務架構設計・高可用性建置・Cache 策略</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 劉奇 Archie Liu・<a href="mailto:chiliteng007@gmail.com">chiliteng007@gmail.com</a></span>
+    <span class="mono">本站由我與 Claude 協作建置</span>
+  </footer>
+</div>
+
+</body>
+</html>
