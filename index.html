@@ -8,6 +8,54 @@
 <meta property="og:description" content="Java / Spring Boot・FinTech × IoT × LLM 工程化">
 <meta property="og:type" content="website">
 <title>劉奇 Archie｜資深後端工程師</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "劉奇",
+  "alternateName": "Archie Liu",
+  "jobTitle": "資深後端工程師",
+  "email": "chiliteng007@gmail.com",
+  "url": "https://chil2020.github.io/",
+  "sameAs": ["https://github.com/chil2020"],
+  "address": { "@type": "PostalAddress", "addressRegion": "新北市", "addressCountry": "TW" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "國立聯合大學・電子工程學系" },
+  "knowsLanguage": ["zh-Hant", "en"],
+  "knowsAbout": [
+    "Java", "Spring Boot", "RESTful API", "PostgreSQL", "Hibernate", "MyBatis",
+    "Docker", "CI/CD", "AWS", "RedHat OpenShift", "Linux", "Kibana",
+    "LLM API 整合", "RAG", "pgvector", "RabbitMQ",
+    "Angular", "JUnit 5", "JMeter", "MQTT"
+  ],
+  "hasOccupation": [
+    {
+      "@type": "Occupation", "name": "系統工程師（運維）",
+      "occupationLocation": { "@type": "Place", "name": "恒達科有限公司" },
+      "startDate": "2025-11", "endDate": "2026-05"
+    },
+    {
+      "@type": "Occupation", "name": "資深解決方案工程師",
+      "occupationLocation": { "@type": "Place", "name": "偉康科技股份有限公司" },
+      "startDate": "2022-10", "endDate": "2025-11"
+    },
+    {
+      "@type": "Occupation", "name": "Java 工程師",
+      "occupationLocation": { "@type": "Place", "name": "金波信息技術諮詢" },
+      "startDate": "2022-03", "endDate": "2022-10"
+    },
+    {
+      "@type": "Occupation", "name": "Java Backend Server 工程師",
+      "occupationLocation": { "@type": "Place", "name": "磐旭智能股份有限公司" },
+      "startDate": "2020-07", "endDate": "2022-02"
+    },
+    {
+      "@type": "Occupation", "name": "生產設備工程師",
+      "occupationLocation": { "@type": "Place", "name": "台灣美光晶圓科技" },
+      "startDate": "2015-12", "endDate": "2020-02"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <style>
@@ -150,6 +198,16 @@
   .project p { margin: 0; font-size: 15px; flex: 1; }
   .project .tags { margin-top: 4px; }
   .project .tag { font-size: 12px; }
+  .project h3 .repo {
+    display: block; margin-top: 6px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12px; font-weight: 400; color: var(--copper);
+    letter-spacing: 0.01em;
+  }
+  .project .note {
+    font-size: 13.5px; color: var(--muted); flex: none;
+    border-left: 2px solid var(--line); padding-left: 12px;
+  }
 
   /* education */
   .edu-list { display: grid; gap: 14px; }
@@ -191,6 +249,7 @@
     </p>
     <div class="contact mono">
       <a href="mailto:chiliteng007@gmail.com">chiliteng007@gmail.com</a>
+      <a href="https://github.com/chil2020" rel="me">github.com/chil2020</a>
       <span>台北市・新北市</span>
       <span>後端工程師／全端工程師</span>
     </div>
@@ -253,7 +312,7 @@
         <h3>資深解決方案工程師</h3>
         <p class="org">偉康科技股份有限公司（WebComm）</p>
         <ul>
-          <li>負責超過 40% 的後端核心開發；與架構師協作調整分散式系統架構。參與資料庫由 MSSQL 遷移至 PostgreSQL（配合導入 Greenplum），並排查排程堵塞問題——<strong>以「只替換資料庫容器」做控制變因測試</strong>，確認瓶頸不在應用層。</li>
+          <li>負責 40% 的後端核心開發；與架構師協作調整分散式系統架構。參與資料庫由 MSSQL 遷移至 PostgreSQL（配合導入 Greenplum），並排查排程堵塞問題——<strong>以「只替換資料庫容器」做控制變因測試</strong>，確認瓶頸不在應用層。</li>
           <li>與架構師重整地端部署流程：<strong>建置定義與部署產物分離</strong>，各微服務獨立建置、統一腳本編排並產出版本化 image，客戶端手動部署 <span class="metric">1 小時 → 20 分鐘</span>。</li>
           <li>獨立完成全端任務：前端介面（Angular）、後端 API 與 <strong>LLM 技術整合實作</strong>。</li>
           <li>接手高複雜度既有專案，<span class="metric">3 個月</span>內釐清並清償累積技術債，順利為 2 家金融機構完成客製化交付。</li>
@@ -311,13 +370,14 @@
       <div class="project">
         <h3>會員入口共用平台（技術顧問）</h3>
         <p class="when mono">2023/10 – 2024/11</p>
-        <p>跨語言剖析 C#（.NET）平台的架構、設計模式與資安規範，在 Java（Spring Boot 3）生態系完成同等標準的樣板重構，為客戶 Java 團隊建立標準化串接框架，並提供測試範例與教育訓練。</p>
+        <p>跨語言剖析 C#（.NET）平台的架構、設計模式與資安規範，在 Java（Spring Boot 3）生態系完成同等標準的範本重構，為客戶 Java 團隊建立標準化串接框架，並提供測試範例與教育訓練。</p>
         <div class="tags"><span class="tag">Spring Boot 3</span><span class="tag">C# → Java</span><span class="tag">JUnit 5</span><span class="tag">GitLab CI</span></div>
       </div>
       <div class="project">
-        <h3>SVRA 智慧語音知識助理</h3>
-        <p class="when mono">2024/05 迄今・持續演進</p>
+        <h3>SVRA 智慧語音知識助理 <a class="repo" href="https://github.com/chil2020/svra">github.com/chil2020/svra ↗</a></h3>
+        <p class="when mono">2024/05 迄今・重構中</p>
         <p>整合 LINE Messaging API、OpenAI Whisper 與線上備忘錄：對 LINE 說一句話，語音即轉為結構化筆記。目前正以事件驅動架構重構——Java 編排、Python ML worker、佇列解耦、pgvector RAG 檢索。</p>
+        <p class="note">README 記錄了 9 個設計決策與捨棄的方案。以單人使用的規模，這套架構是過度設計的——重構的目的是練架構本身，而不是這個功能需要它。</p>
         <div class="tags"><span class="tag">LINE API</span><span class="tag">Whisper</span><span class="tag">RabbitMQ</span><span class="tag">pgvector</span></div>
       </div>
       <div class="project">
@@ -349,7 +409,7 @@
 
   <footer>
     <span>© 2026 劉奇 Archie Liu・<a href="mailto:chiliteng007@gmail.com">chiliteng007@gmail.com</a></span>
-    <span class="mono">本站由我與 Claude 協作建置</span>
+    <span class="mono">本站由我與 Claude 協作建置——版面交給 AI，內容與取捨我自己決定。</span>
   </footer>
 </div>
 
