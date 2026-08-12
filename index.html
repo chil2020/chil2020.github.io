@@ -50,6 +50,11 @@
       "startDate": "2020-07", "endDate": "2022-02"
     },
     {
+      "@type": "Occupation", "name": "軟體工程師（職業訓練）",
+      "occupationLocation": { "@type": "Place", "name": "財團法人資訊工業策進會・跨域 Java 軟體工程師就業養成班" },
+      "startDate": "2020-02", "endDate": "2020-06"
+    },
+    {
       "@type": "Occupation", "name": "生產設備工程師",
       "occupationLocation": { "@type": "Place", "name": "台灣美光晶圓科技" },
       "startDate": "2015-12", "endDate": "2020-02"
@@ -190,6 +195,11 @@
   .job-when { font-size: 13px; color: var(--muted); padding-top: 5px; }
   .job-when .dur { display: block; color: var(--copper); margin-top: 2px; }
   .job h3 { margin: 0; font-size: 18px; font-weight: 700; }
+  .job h3 .kind {
+    margin-left: 10px; padding: 2px 8px; border-radius: 4px; vertical-align: 2px;
+    background: var(--tag-bg); color: var(--muted);
+    font-size: 11px; font-weight: 500; letter-spacing: 0.04em;
+  }
   .job .org { color: var(--muted); font-size: 14px; margin: 2px 0 12px; }
   .job ul { margin: 0; padding-left: 20px; }
   .job li { margin-bottom: 8px; }
@@ -313,7 +323,10 @@
         <p class="org">恒達科有限公司・高併發交易平台</p>
         <ul>
           <li>負責高併發交易服務與 AWS 雲端基礎設施的日常穩定性維運，累積 <strong>production 交易系統的第一線維運視角</strong>。</li>
-          <li>擔任 B2B 技術支持，主導外部合作夥伴 API 串接指導與跨系統日誌排查；以 Kibana 建立跨系統的日誌關聯，將原本需逐台查找的異常定位收斂到單一介面。</li>
+          <li><strong>主機異常偵測與告警</strong>：發現主機 CPU 常態 90% 以上，追查後定位為異常挖礦程序；後續開發巡檢腳本（CPU／記憶體／異常程序），部署至 <span class="metric">5 台</span> AWS 邊緣主機，以 cron 每小時執行並告警至 Telegram——初期誤報偏多，<strong>調整判斷條件後收斂至穩定</strong>。</li>
+          <li><strong>維運自動化</strong>：將備援域名池的各地連通性預檢（20～30 個域名、原本每日人工約 <span class="metric">15 分鐘</span>）改為爬蟲自動化，消除人工操作風險，確保切換時備援隨時可用。</li>
+          <li>擔任 B2B 技術支持，主導外部合作夥伴的 API 串接指導、商務協調審查與跨系統日誌排查；以 Kibana 建立跨系統的日誌關聯，將原本需逐台查找的異常定位收斂到單一介面。</li>
+          <li>協助開發團隊將各市場分散的 API 文件整合至單一站點；接手後發現中英文混雜，<strong>憑過往專案的 i18n 經驗導入多語系切換機制</strong>，使介面語系可一鍵切換。</li>
         </ul>
       </div>
     </div>
@@ -352,6 +365,19 @@
         <ul>
           <li>基於 Spring Boot 獨立開發後端核心 API，服務前端應用與物聯網設備，並優化系統吞吐量。</li>
           <li>與韌體工程師協作 MQTT 協定實作與優化，降低訊息延遲；以 JMeter 建構高峰期壓力測試，協助定位系統瓶頸。</li>
+          <li>參與 CentOS 伺服器的日常維護，協同導入自動化監控以縮短故障診斷時間，並協助伺服器組態配置——<strong>這是我第一次接觸 production 環境的維運</strong>。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-when mono">2020/02 – 2020/06<span class="dur">5 個月</span></div>
+      <div>
+        <h3>軟體工程師<span class="kind">職業訓練</span></h3>
+        <p class="org">財團法人資訊工業策進會・跨域 Java 軟體工程師就業養成班</p>
+        <ul>
+          <li>與團隊共同開發「SkillExchange 技能交換平台」：<strong>個人負責整合 WebSocket 協定</strong>，實作使用者之間的即時聊天與通訊功能，並參與後端資料庫關聯設計。</li>
+          <li>技術棧：Spring MVC、Hibernate；前端 jQuery、Ajax、WebSocket。<strong>這五個月是我從硬體轉軟體的起點。</strong></li>
         </ul>
       </div>
     </div>
