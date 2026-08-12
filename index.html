@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="劉奇 Archie Liu — 資深 Java 後端工程師。5 年 Spring Boot 開發經驗,專長 FinTech、IoT 與 LLM 工程化,具備 production 金流系統維運視野。">
+<meta name="description" content="劉奇 Archie Liu — 資深 Java 後端工程師。5 年 Spring Boot 開發經驗,專長 FinTech、IoT 與 LLM 工程化,具備 production 高併發交易系統的維運視野。">
 <meta property="og:title" content="劉奇 Archie｜資深後端工程師">
 <meta property="og:description" content="Java / Spring Boot・FinTech × IoT × LLM 工程化">
 <meta property="og:type" content="website">
@@ -30,7 +30,7 @@
   ],
   "hasOccupation": [
     {
-      "@type": "Occupation", "name": "系統工程師（運維）",
+      "@type": "Occupation", "name": "系統工程師（維運）",
       "occupationLocation": { "@type": "Place", "name": "恒達科有限公司" },
       "startDate": "2025-11", "endDate": "2026-05"
     },
@@ -148,8 +148,16 @@
     max-width: 34em; text-wrap: balance;
   }
   .intro { max-width: 40em; margin: 0 0 30px; color: var(--ink); }
-  .contact { display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 14px; }
+  .contact { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; font-size: 14px; }
   .contact span { color: var(--muted); }
+  .status {
+    display: inline-flex; align-items: center; gap: 7px;
+    color: var(--ink) !important; font-weight: 500;
+  }
+  .status::before {
+    content: ""; width: 7px; height: 7px; border-radius: 50%;
+    background: #2E9E5B; box-shadow: 0 0 0 3px rgba(46, 158, 91, 0.18);
+  }
 
   /* ---- sections ---- */
   section { padding: 52px 0 8px; }
@@ -190,25 +198,28 @@
 
   /* projects */
   .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+  /* 卡片內距離用各自的 margin 控制，不用 flex gap——
+     gap 對所有子元素一視同仁，標題／連結／日期需要的間距其實不同 */
   .project {
     background: var(--surface); border: 1px solid var(--line); border-radius: 6px;
-    padding: 24px; display: flex; flex-direction: column; gap: 10px;
+    padding: 24px; display: flex; flex-direction: column;
   }
-  .project h3 { margin: 0; font-size: 17px; font-weight: 700; }
-  .project .when { font-size: 12px; color: var(--muted); }
-  .project p { margin: 0; font-size: 15px; flex: 1; }
-  .project .tags { margin-top: 4px; }
-  .project .tag { font-size: 12px; }
-  .project h3 .repo {
-    display: block; margin-top: 6px;
+  .project h3 { margin: 0 0 6px; font-size: 17px; font-weight: 700; text-wrap: balance; }
+  .project .repo {
+    margin: 0 0 4px; align-self: start;
     font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-    font-size: 12px; font-weight: 400; color: var(--copper);
-    letter-spacing: 0.01em;
+    font-size: 12px; color: var(--copper); letter-spacing: 0.01em;
   }
+  .project .when { margin: 0 0 14px; font-size: 12px; color: var(--muted); }
+  .project p { margin: 0 0 14px; font-size: 15px; text-wrap: pretty; }
   .project .note {
-    font-size: 13.5px; color: var(--muted); flex: none;
+    font-size: 13.5px; color: var(--muted);
     border-left: 2px solid var(--line); padding-left: 12px;
   }
+  /* 標籤釘在底部：卡片等高時，多餘高度全部集中到這一條 auto margin，
+     不會在文字中間撐出空白（先前 .project p 的 flex:1 就是那個 bug） */
+  .project .tags { margin-top: auto; padding-top: 4px; }
+  .project .tag { font-size: 12px; }
 
   /* education */
   .edu-list { display: grid; gap: 14px; }
@@ -245,14 +256,14 @@
     <p class="motto serif">「再複雜的問題，拆解後都能變簡單；只要方向對了，凡事皆有解。」</p>
     <p class="intro">
       5 年 Java 後端開發經驗，職涯起步於台灣美光的無塵室——在電鍍銅機台的第一線維運中學會系統性拆解問題，也因此走進軟體開發。
-      擅長微服務架構排錯與跨系統異常定位，交付過金融視訊核身、跨境支付維運、LLM 整合等核心系統；
+      擅長微服務架構排錯與跨系統異常定位，交付過金融視訊核身、高併發交易平台維運、LLM 整合等核心系統；
       相信好的架構來自誠實的取捨（trade-off），而不是堆疊技術。
     </p>
     <div class="contact mono">
+      <span class="status">開放新機會</span>
       <a href="mailto:chiliteng007@gmail.com">chiliteng007@gmail.com</a>
       <a href="https://github.com/chil2020" rel="me">github.com/chil2020</a>
-      <span>台北市・新北市</span>
-      <span>後端工程師／全端工程師</span>
+      <span>台北市・新北市・可遠端</span>
     </div>
   </header>
 
@@ -298,10 +309,10 @@
     <div class="job">
       <div class="job-when mono">2025/11 – 2026/05<span class="dur">7 個月</span></div>
       <div>
-        <h3>系統工程師（運維）</h3>
-        <p class="org">恒達科有限公司・跨境電商支付平台</p>
+        <h3>系統工程師（維運）</h3>
+        <p class="org">恒達科有限公司・高併發交易平台</p>
         <ul>
-          <li>負責高併發金流服務與 AWS 雲端基礎設施的日常穩定性運維，累積 <strong>production 金流系統的第一線維運視角</strong>。</li>
+          <li>負責高併發交易服務與 AWS 雲端基礎設施的日常穩定性維運，累積 <strong>production 交易系統的第一線維運視角</strong>。</li>
           <li>擔任 B2B 技術支持，主導外部合作夥伴 API 串接指導與跨系統日誌排查；以 Kibana 進行異常定位，<span class="metric">大幅縮短 MTTR</span>。</li>
         </ul>
       </div>
@@ -351,7 +362,7 @@
         <h3>生產設備工程師</h3>
         <p class="org">台灣美光晶圓科技（Micron）</p>
         <ul>
-          <li>主導電鍍銅核心設備的運維、異常排錯與製程改善；優化 PM 標準流程並建立故障排除 SOP，維持產線高稼動率。</li>
+          <li>主導電鍍銅核心設備的維運、異常排錯與製程改善；優化 PM 標準流程並建立故障排除 SOP，維持產線高稼動率。</li>
           <li>透過系統性數據分析降低微粒子污染、解決電鍍不均與填充缺陷——<strong>在硬體現場養成的拆解方法，後來成為我做軟體的底層能力</strong>。</li>
         </ul>
       </div>
@@ -375,7 +386,8 @@
         <div class="tags"><span class="tag">Spring Boot 3</span><span class="tag">C# → Java</span><span class="tag">JUnit 5</span><span class="tag">GitLab CI</span></div>
       </div>
       <div class="project">
-        <h3>SVRA 智慧語音知識助理 <a class="repo" href="https://github.com/chil2020/svra">github.com/chil2020/svra ↗</a></h3>
+        <h3>SVRA 智慧語音知識助理</h3>
+        <a class="repo" href="https://github.com/chil2020/svra">github.com/chil2020/svra ↗</a>
         <p class="when mono">2024/05 迄今・重構中</p>
         <p>整合 LINE Messaging API、OpenAI Whisper 與線上備忘錄：對 LINE 說一句話，語音即轉為結構化筆記。目前正以事件驅動架構重構——Java 編排、Python ML worker、佇列解耦、pgvector RAG 檢索。</p>
         <p class="note">README 記錄了 9 個設計決策與捨棄的方案。以單人使用的規模，這套架構是過度設計的——重構的目的是練架構本身，而不是這個功能需要它。</p>
