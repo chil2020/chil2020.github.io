@@ -78,27 +78,29 @@
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --paper: #15181C;
-      --surface: #1D2127;
-      --ink: #E9E5DF;
-      --muted: #9AA3AC;
-      --copper: #D98E55;
-      --copper-soft: #B96F3C;
-      --line: #2C323A;
-      --tag-bg: #262C34;
-      --code-bg: #21262D;
+      /* 暖色深色版：與淺色版共用同一個色相（~32°），保留「紙」的質感。
+         原本的 #15181C 系是偏藍的冷灰，深色模式下會失去整體風格 */
+      --paper: #1A1713;
+      --surface: #221E19;
+      --ink: #EDE7DD;
+      --muted: #A79E92;
+      --copper: #E0975C;
+      --copper-soft: #BE7A45;
+      --line: #332C24;
+      --tag-bg: #2A241D;
+      --code-bg: #211C16;
     }
   }
   :root[data-theme="dark"] {
-    --paper: #15181C;
-    --surface: #1D2127;
-    --ink: #E9E5DF;
-    --muted: #9AA3AC;
-    --copper: #D98E55;
-    --copper-soft: #B96F3C;
-    --line: #2C323A;
-    --tag-bg: #262C34;
-    --code-bg: #21262D;
+    --paper: #1A1713;
+    --surface: #221E19;
+    --ink: #EDE7DD;
+    --muted: #A79E92;
+    --copper: #E0975C;
+    --copper-soft: #BE7A45;
+    --line: #332C24;
+    --tag-bg: #2A241D;
+    --code-bg: #211C16;
   }
   :root[data-theme="light"] {
     --paper: #FAF8F5;
