@@ -418,9 +418,9 @@
         <h3>SVRA 智慧語音知識助理</h3>
         <a class="repo" href="https://github.com/chil2020/svra">github.com/chil2020/svra ↗</a>
         <p class="when mono">2024/05 迄今</p>
-        <p>對 LINE 說一句話，語音轉成結構化筆記後推回來，再用一句話就能修改或刪除。事件驅動架構：Java 編排、Python 轉錄 worker、Transactional Outbox 保證任務不遺失。抽取層有 <span class="metric">8 題 eval 集擋 prompt 回歸</span>，模組邊界由 Spring Modulith 驗證。<span class="metric">語音轉錄與語意抽取全部跑在地端，不呼叫付費 API</span>。</p>
-        <p class="note">README 記錄 23 項設計決策，每一項都寫了放棄什麼、什麼情況會反悔。以單人使用的規模這套架構是過度設計的——重構的目的是練架構本身，而不是這個功能需要它。</p>
-        <div class="tags"><span class="tag">Spring Boot 4</span><span class="tag">Spring AI</span><span class="tag">RabbitMQ</span><span class="tag">Ollama</span><span class="tag">地端 LLM</span></div>
+        <p>對 LINE 說一句話，語音轉成結構化筆記後推回來，再用一句話就能修改或刪除；有時間的項目一鍵進 Google 行事曆，之後在 LINE 改時間或刪掉，行事曆會跟著動。事件驅動架構：Java 編排、Python 轉錄 worker、Transactional Outbox 保證任務不遺失。抽取層有 eval 集擋 prompt 回歸，模組邊界由 Spring Modulith 驗證，<span class="metric">整合測試跑真的 PostgreSQL 而不是 mock</span>。<span class="metric">語音轉錄與語意抽取全部跑在地端，不呼叫付費 API</span>。</p>
+        <p class="note">README 逐項記錄設計決策，每一項都寫了放棄什麼、什麼情況會反悔——包含我自己判斷錯、後來推翻的那幾項。開放給多人使用前查出一個真實的跨使用者漏洞：<span class="metric">查詢少了使用者範圍，而單人使用時它不會出錯</span>。以單人的規模這套架構是過度設計的——重構的目的是練架構本身，而不是這個功能需要它。</p>
+        <div class="tags"><span class="tag">Spring Boot 4</span><span class="tag">Spring AI</span><span class="tag">RabbitMQ</span><span class="tag">PostgreSQL</span><span class="tag">Ollama</span><span class="tag">地端 LLM</span><span class="tag">Testcontainers</span></div>
       </div>
       <div class="project">
         <h3>Nous 數據平台系列（CDP / DGS / AI 營運助理）</h3>
