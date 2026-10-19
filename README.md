@@ -1,4 +1,4 @@
-# 劉奇 Archie Liu — 個人網站
+# 劉奇 Archie Liou — 個人網站
 
 資深 Java 後端工程師的個人履歷網站,部署於 GitHub Pages:**https://chil2020.github.io**
 
